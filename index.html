@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV de Iván García</title>
+    <!-- Carga de Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Script de Alpine.js para la funcionalidad del menú desplegable -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <style>
+        /* Estilos personalizados para la tipografía y la imagen */
+        body {
+            font-family: 'Verdana', sans-serif;
+        }
+        .profile-image {
+            width: 133px;
+            height: 165px;
+            border: 1px solid #000;
+        }
+        .icon {
+            fill: #1e293b;
+        }
+        .contact-button {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem; /* Ajuste de tamaño para consistencia */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .whatsapp-button {
+            background-color: #25d366;
+        }
+        .whatsapp-button:hover {
+            background-color: #128c7e;
+        }
+        .email-button {
+            background-color: #3b82f6;
+        }
+        .email-button:hover {
+            background-color: #2563eb;
+        }
+        .print-button {
+            background-color: #4a5568;
+        }
+        .print-button:hover {
+            background-color: #2d3748;
+        }
+        /* La regla para evitar que las secciones se corten al imprimir */
+        @media print {
+            @page {
+                margin: 10mm;
+            }
+            body {
+                background-color: #fff !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+            .container {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="relative min-h-screen">
+        
+        <!-- Menú desplegable y botones de contacto -->
+        <div class="absolute top-4 left-4 z-50 no-print">
+            <div class="relative inline-block text-left" x-data="{ open: false }" @click.away="open = false">
+                <div>
+                    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none" @click="open = !open">
+                        <span class="font-bold">Mis Títulos</span>
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div x-show="open" x-transition class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical">
+                    <div class="py-1" role="none">
+                        <!-- TODO: Reemplaza los siguientes href con las URLs reales de tus títulos -->
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Diseño en Fabricación Mecánica</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Técnico en Delineación Industrial</a>
+                        <hr class="my-1 border-gray-200">
+                        <a href="https://drive.google.com/file/d/PLACEHOLDER_CALDERERIA/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Cálculos de Calderería</a>
+                        <a href="https://drive.google.com/file/d/PLACEHOLDER_PRODUCTOS/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Diseño de Productos</a>
+                        <a href="https://drive.google.com/file/d/PLACEHOLDER_ASISTENCIA/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Asistencia Documental y de Gestión</a>
+                        <a href="https://drive.google.com/file/d/PLACEHOLDER_INFOGRAFIA/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Infografía de Prensa</a>
+                        <a href="https://drive.google.com/file/d/PLACEHOLDER_ELECTRICAS/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Técnico en Instalaciones Eléctricas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed top-4 right-4 z-50 no-print flex flex-col items-end space-y-2">
+            <a href="https://wa.me/34661400233?text=Hola,%20he%20visto%20tu%20CV%20y%20me%20gustaría%20contactar%20contigo." target="_blank" class="contact-button whatsapp-button flex items-center justify-center space-x-2 w-32 md:w-40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>WhatsApp</span>
+            </a>
+            <a href="mailto:ivangarcia.dt@gmail.com" target="_blank" class="contact-button email-button flex items-center justify-center space-x-2 w-32 md:w-40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>Email</span>
+            </a>
+            <a href="https://drive.google.com/file/d/1QQqB27hoYRWvYzQxZkaAVNCDUSWpN8BH/view?usp=drive_link" target="_blank" class="contact-button print-button flex items-center justify-center w-32 md:w-40">
+                <span>Imprimir a PDF</span>
+            </a>
+        </div>
+
+        <div class="container mx-auto p-6 md:p-10 max-w-4xl bg-white shadow-xl rounded-2xl my-10">
+            
+            <!-- Encabezado y contacto -->
+            <header class="flex flex-col md:flex-row items-center text-center md:text-left mb-8">
+                <img src="https://i.imgur.com/WS6orFn.jpeg" alt="Foto de perfil de Iván" class="rounded-lg object-cover profile-image shadow-md mb-4 md:mb-0 md:mr-6">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">IVÁN GARCÍA SANTOS</h1>
+                    <p class="text-lg md:text-xl font-semibold text-slate-600 mt-1">Delineante Mecánico</p>
+                    <div class="text-gray-600 text-sm space-y-1.5 mt-4 flex flex-col items-center md:items-start">
+                        <p class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>48190 Sopuerta (Bizkaia)</span>
+                        </p>
+                        <p class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.96 21 2 12.04 2 3c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>+34 661 400 233</span>
+                        </p>
+                        <p class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5l-8-5h16zm0 12H4V8l8 5l8-5v10z"/></svg>
+                            <span>ivangarcia.dt@gmail.com</span>
+                        </p>
+                    </div>
+                </div>
+            </header>
+    
+            <!-- Resumen profesional -->
+            <section class="mb-8 print-avoid-break">
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Resumen Profesional</h2>
+                <p class="text-base text-gray-700 leading-relaxed text-justify">
+                    Profesional con una sólida trayectoria como Delineante Mecánico e Industrial. Experiencia en diseño 2D y 3D utilizando programas como AutoCAD, Solid Edge, Inventor y NX. Especializado en calderería, estructuras metálicas, mecanizado de piezas y tubería industrial.
+                </p>
+            </section>
+    
+            <!-- Experiencia Laboral -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Experiencia Laboral</h2>
+                <div class="space-y-6">
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">BIKAR JUNTAS DE EXPANSIÓN</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">01/2025 – 05/2025</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño 3D de estructura metálica y piezas para mecanizado con AutoCAD Mechanical 3D.</li>
+                            <li>Elaboración de planos para pedidos de láser, conjuntos, despieces y listas de materiales.</li>
+                            <li>Desarrollo de proyectos de calderería metálica aplicando conocimientos de dibujo técnico.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">TN FLEX CONVEYORS</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">01/2024 – 11/2024</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño de transportadores automatizados con Autodesk Inventor y AutoCAD 2D/3D.</li>
+                            <li>Creación de documentación técnica de fabricación, incluyendo conjuntos, despieces y listas de materiales.</li>
+                            <li>Elaboración de planos para pedidos de láser, calderería metálica y piezas para mecanizado.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica /<br>Gestor de Proyectos</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">TRAMEINSA</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">10/2022 – 12/2023</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Desarrollo técnico de proyectos de calderería metálica, estructura metálica y mecanizado de piezas con AutoCAD.</li>
+                            <li>Gestión de proyectos, incluyendo la redacción y petición de ofertas, planificación de equipos y compra de materiales.</li>
+                            <li>Interlocución directa con clientes y proveedores para el seguimiento y gestión de los pedidos.</li>
+                            <li>Control del proceso de fabricación y gestión logística integral, desde la contratación del transporte hasta la entrega final del producto.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">DISTEK</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">08/2021 – 09/2022</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño 3D y 2D de proyectos con Autodesk Inventor y AutoCAD, especializándome en tubería industrial (gas), calderería metálica, estructura metálica y piezas para mecanizado.</li>
+                            <li>Aplicación de normativas del sector y manejo de inglés técnico para la documentación de proyectos.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                             <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica /<br>Gestor de Proyectos</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">SERVIPLAST</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">07/2019 - 06/2021</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño 3D y 2D de proyectos utilizando Solid Edge y AutoCAD.</li>
+                            <li>Desarrollo de proyectos de calderería (plástica y metálica), estructura metálica, tubería industrial y neumática.</li>
+                            <li>Aplicación de conocimientos en tecnología de plásticos y mecanizado de piezas.</li>
+                            <li>Gestión integral de proyectos: petición de ofertas, compra de materiales y trato con clientes y proveedores.</li>
+                            <li>Supervisión de la fabricación y coordinación logística, incluyendo la contratación de transporte y el control de la entrega.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                         <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseñador en Fabricación Mecánica</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">IDDTEK</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">12/2018 – 07/2019</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño 3D y 2D con Solid Edge y AutoCAD para proyectos de calderería metálica y transformadores de potencia.</li>
+                            <li>Elaboración de documentación técnica y listas de materiales para fabricación.</li>
+                        </ul>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseñador en Fabricación Mecánica</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">SERVAI</p>
+                            </div>
+                           <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">03/2018 – 11/2018</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>Diseño 3D y 2D con Solid Edge y AutoCAD Mechanical para proyectos de calderería y estructura metálica.</li>
+                            <li>Elaboración de conjuntos y despieces para fabricación y trato directo con clientes para el seguimiento de proyectos.</li>
+                        </ul>
+                    </div>
+                     <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                             <div>
+                                <h3 class="text-base font-semibold">Delineante Industrial</h3>
+                                <p class="text-sm text-gray-600 uppercase font-normal">Varios</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">2001 – 2015</span>
+                        </div>
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
+                            <li>ETT (08/2010 – 03/2015): Participación en proyectos de telecomunicaciones móviles, obra civil y estructuras. Realización de planos de construcción, toma de medidas y replanteos con AutoCAD. Gestión documental con Word y Excel y atención telefónica.</li>
+                            <li>ENER INGENIEROS (06/2006 – 06/2008): Elaboración de planos de viviendas con AutoCAD, incluyendo instalaciones de fontanería, calefacción, saneamiento y telecomunicaciones móviles. Gestión de la atención telefónica.</li>
+                            <li>BOSLAN INGENIERÍA Y CONSULTORÍA (03/2003 – 06/2006): Desarrollo de proyectos de tubería industrial y obra civil con AutoCAD, incluyendo planos de canalizaciones, perfiles de terrenos, replanteos y cartografías digitalizadas. Gestión de la atención telefónica.</li>
+                            <li>INGECLIMA (01/2001 – 01/2003): Diseño de proyectos de climatización (hospitales, salas blancas, oficinas, naves industriales) con AutoCAD, incluyendo el trazado de conductos de aire frío-calor, replanteos y toma de medidas en obra.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Formación -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Formación</h2>
+                <div class="space-y-4">
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Diseño en Fabricación Mecánica (CFGS)</h3>
+                                <p class="text-sm text-gray-600 font-normal">NICOLÁS LARBURU, Barakaldo</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">2016-2018</span>
+                        </div>
+                    </div>
+                    <div class="print-avoid-break">
+                        <div class="flex flex-col md:flex-row md:justify-between">
+                            <div>
+                                <h3 class="text-base font-semibold">Técnico Especialista en Delineación Industrial (FPI-FPII)</h3>
+                                <p class="text-sm text-gray-600 font-normal">SALESIANOS DEUSTO, Bilbao</p>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">1995-2000</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Habilidades -->
+            <section class="mb-8">
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Programas y Habilidades</h2>
+                <div class="space-y-6">
+                    <div class="print-avoid-break">
+                        <h3 class="text-lg font-semibold">Formación Complementaria</h3>
+                        <div class="space-y-4 text-sm text-gray-700 mt-2">
+                             <div>
+                                <p class="font-semibold">Cálculos de Calderería y Estructuras Metálicas</p>
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <span>PEÑASCAL S.COOP, Bilbao</span><span class="text-gray-500 font-medium">2021 | 170h</span>
+                                </div>
+                            </div>
+                             <div>
+                                <p class="font-semibold">Diseño de Productos en Fabricación Mecánica</p>
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <span>SALESIANOS DEUSTO, Bilbao</span><span class="text-gray-500 font-medium">2017 | 600h</span>
+                                </div>
+                            </div>
+                             <div>
+                                <p class="font-semibold">Asistencia Documental y de Gestión en Despachos y Oficinas</p>
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <span>CENTRO DE FORMACIÓN JURITECNIA, Bilbao</span><span class="text-gray-500 font-medium">2015 | 750h</span>
+                                </div>
+                            </div>
+                             <div>
+                                <p class="font-semibold">Infografía de Prensa</p>
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <span>FONDO FORMACIÓN EUSKADI, Valle de Trápaga</span><span class="text-gray-500 font-medium">2014 | 435h</span>
+                                </div>
+                            </div>
+                             <div>
+                                <p class="font-semibold">Técnico en Instalaciones Eléctricas y Energías Renovables en Edificios</p>
+                                <div class="flex flex-col md:flex-row md:justify-between">
+                                    <span>CENTRO DE ENSEÑANZA SAN ROQUE, Portugalete</span><span class="text-gray-500 font-medium">2011 | 385h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="print-avoid-break">
+                        <h3 class="text-lg font-semibold">CAD e Informática</h3>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">AutoCAD 2D y 3D</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">Solid Edge</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">Inventor</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">NX</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">AutoCAD Mechanical 2D y 3D</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">Word</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">Excel</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">PowerPoint</span>
+                            <span class="bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">Access</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Idiomas -->
+            <section>
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Idiomas</h2>
+                <ul class="list-disc pl-5 text-base text-gray-700 space-y-1.5">
+                    <li><span class="font-semibold">Inglés:</span> Nivel medio.</li>
+                    <li><span class="font-semibold">Euskera:</span> Nivel medio.</li>
+                </ul>
+            </section>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
