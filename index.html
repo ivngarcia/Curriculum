@@ -65,7 +65,7 @@
                 display: none !important; /* Oculta botones y elementos no deseados */
             }
             .print-avoid-break {
-                page-break-inside: avoid; /* Evita que las secciones se corten entre páginas */
+                page-break-inside: avoid !important; /* Evita que las secciones se corten entre páginas */
             }
             /* Elimina estilos visuales y ajusta el ancho del contenedor para la impresión */
             .container {
@@ -100,11 +100,6 @@
             /* 2. Justifica el texto en las listas de Experiencia e Idiomas */
             section ul li {
                 text-align: justify !important;
-            }
-            
-            /* Permite que la lista de "Varios" se divida, pero mantiene cada experiencia junta */
-            .print-split-items li {
-                page-break-inside: avoid;
             }
 
             /* Asegura que las fechas se mantengan a la derecha y en la misma línea en la impresión */
@@ -167,7 +162,7 @@
         <div class="container mx-auto p-6 md:p-10 max-w-4xl bg-white shadow-xl rounded-2xl my-10">
             
             <!-- Encabezado y contacto -->
-            <header class="flex flex-col md:flex-row items-center text-center md:text-left mb-8">
+            <header class="flex flex-col md:flex-row items-center text-center md:text-left mb-8 print-avoid-break">
                 <img src="https://i.imgur.com/WS6orFn.jpeg" alt="Foto de perfil de Iván" class="rounded-lg object-cover profile-image shadow-md mb-4 md:mb-0 md:mr-6">
                 <div>
                     <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">IVÁN GARCÍA SANTOS</h1>
@@ -203,9 +198,9 @@
     
             <!-- Experiencia Laboral -->
             <section id="experiencia-laboral" class="mb-8">
-                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Experiencia Laboral</h2>
+                <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4 print-avoid-break">Experiencia Laboral</h2>
                 <div class="space-y-6">
-                    <!-- Nueva experiencia: TALIO -->
+                    <!-- TALIO -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -221,6 +216,7 @@
                         </ul>
                     </div>
                     
+                    <!-- BIKAR -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -235,6 +231,8 @@
                             <li>Desarrollo de proyectos de calderería metálica aplicando conocimientos de dibujo técnico.</li>
                         </ul>
                     </div>
+
+                    <!-- TN FLEX -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -249,6 +247,8 @@
                             <li>Elaboración de planos para pedidos de láser, calderería metálica y piezas para mecanizado.</li>
                         </ul>
                     </div>
+
+                    <!-- TRAMEINSA -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -264,6 +264,8 @@
                             <li>Control del proceso de fabricación y gestión logística integral, desde la contratación del transporte hasta la entrega final del producto.</li>
                         </ul>
                     </div>
+
+                    <!-- DISTEK -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -277,6 +279,8 @@
                             <li>Aplicación de normativas del sector y manejo de inglés técnico para la documentación de proyectos.</li>
                         </ul>
                     </div>
+
+                    <!-- SERVIPLAST -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                              <div>
@@ -293,6 +297,8 @@
                             <li>Supervisión de la fabricación y coordinación logística, incluyendo la contratación de transporte y el control de la entrega.</li>
                         </ul>
                     </div>
+
+                    <!-- IDDTEK -->
                     <div class="print-avoid-break">
                          <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -306,6 +312,8 @@
                             <li>Elaboración de documentación técnica y listas de materiales para fabricación.</li>
                         </ul>
                     </div>
+
+                    <!-- SERVAI -->
                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                             <div>
@@ -319,7 +327,9 @@
                             <li>Elaboración de conjuntos y despieces para fabricación y trato directo con clientes para el seguimiento de proyectos.</li>
                         </ul>
                     </div>
-                     <div>
+
+                    <!-- Delineante Industrial (Varios) - Mantenido como bloque indivisible -->
+                     <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                              <div>
                                 <h3 class="text-base font-semibold">Delineante Industrial</h3>
@@ -327,7 +337,7 @@
                             </div>
                             <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">2001 – 2015</span>
                         </div>
-                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700 print-split-items">
+                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
                             <li>ETT (08/2010 – 03/2015): Participación en proyectos de telecomunicaciones móviles, obra civil y estructuras. Realización de planos de construcción, toma de medidas y replanteos con AutoCAD. Gestión documental con Word y Excel y atención telefónica.</li>
                             <li>ENER INGENIEROS (06/2006 – 06/2008): Elaboración de planos de viviendas con AutoCAD, incluyendo instalaciones de fontanería, calefacción, saneamiento y telecomunicaciones móviles. Gestión de la atención telefónica.</li>
                             <li>BOSLAN INGENIERÍA Y CONSULTORÍA (03/2003 – 06/2006): Desarrollo de proyectos de tubería industrial y obra civil con AutoCAD, incluyendo planos de canalizaciones, perfiles de terrenos, replanteos y cartografías digitalizadas. Gestión de la atención telefónica.</li>
@@ -338,7 +348,7 @@
             </section>
     
             <!-- Formación -->
-            <section class="mb-8">
+            <section class="mb-8 print-avoid-break">
                 <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Formación</h2>
                 <div class="space-y-4">
                     <div class="print-avoid-break">
@@ -363,7 +373,7 @@
             </section>
     
             <!-- Habilidades -->
-            <section class="mb-8">
+            <section class="mb-8 print-avoid-break">
                 <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Programas y Habilidades</h2>
                 <div class="space-y-6">
                     <div class="print-avoid-break">
@@ -425,7 +435,7 @@
             </section>
     
             <!-- Idiomas -->
-            <section>
+            <section class="print-avoid-break">
                 <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Idiomas</h2>
                 <ul class="list-disc pl-5 text-base text-gray-700 space-y-1.5">
                     <li><span class="font-semibold">Inglés:</span> Nivel medio.</li>
