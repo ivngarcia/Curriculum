@@ -47,6 +47,12 @@
             background-color: #2d3748;
         }
 
+        /* Degradado suave más oscuro para el fondo web */
+        .bg-gradient-dark {
+            background: linear-gradient(135deg, #475569 0%, #64748b 50%, #94a3b8 100%);
+            background-attachment: fixed;
+        }
+
         /* Justifica el texto en la sección de experiencia laboral */
         #experiencia-laboral ul li {
             text-align: justify;
@@ -59,7 +65,7 @@
                 size: A4;
             }
             body {
-                background-color: #fff !important; /* Fondo blanco para impresión */
+                background: #fff !important; /* Fondo blanco puro para impresión, anula el degradado web */
             }
             .no-print {
                 display: none !important; /* Oculta botones y elementos no deseados */
@@ -114,12 +120,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<!-- Aplicamos degradado oscuro para la versión web -->
+<body class="text-gray-800 bg-gradient-dark min-h-screen">
 
     <div class="relative min-h-screen">
         
         <!-- Menú desplegable y botones de contacto -->
-        <div class="absolute top-4 left-4 z-50 no-print">
+        <div class="fixed top-4 left-4 z-50 no-print flex flex-col space-y-2">
             <div class="relative inline-block text-left" x-data="{ open: false }" @click.away="open = false">
                 <div>
                     <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none" @click="open = !open">
@@ -140,6 +147,35 @@
                         <a href="https://drive.google.com/file/d/PLACEHOLDER_ASISTENCIA/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Asistencia Documental y de Gestión</a>
                         <a href="https://drive.google.com/file/d/PLACEHOLDER_INFOGRAFIA/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Infografía de Prensa</a>
                         <a href="https://drive.google.com/file/d/PLACEHOLDER_ELECTRICAS/view?usp=drive_link" target="_blank" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Técnico en Instalaciones Eléctricas</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón y Modal de Videocurrículum -->
+            <div x-data="{ openVideo: false }">
+                <button type="button" @click="openVideo = true" class="inline-flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none transition-colors">
+                    <svg class="mr-1.5 h-5 w-5 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span class="font-bold">Videocurrículum</span>
+                </button>
+
+                <!-- Modal -->
+                <div x-show="openVideo" style="display: none;" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-75 p-4" x-transition>
+                    <div class="relative w-full max-w-3xl rounded-lg bg-white shadow-2xl" @click.away="openVideo = false">
+                        <div class="flex items-center justify-between border-b p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Vídeo de Presentación</h3>
+                            <button @click="openVideo = false" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="aspect-video w-full bg-gray-200 flex items-center justify-center rounded-lg overflow-hidden border border-gray-300 mb-4 relative">
+                                <!-- Aquí irá el iframe cuando lo tengas -->
+                                <span class="text-gray-500 font-medium absolute z-10 px-4">Espacio reservado para tu Videocurrículum (Próximamente)</span>
+                            </div>
+                            <p class="text-sm text-gray-600">Cuando grabes el vídeo (YouTube o Drive), incrustaremos el reproductor aquí.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,38 +245,6 @@
                             <li>Realización de planos de calderería y mecanizado utilizando AutoCAD e Inventor.</li>
                             <li>Desarrollo de conjuntos y despieces detallados para fabricación.</li>
                             <li>Gestión y administración de archivos técnicos mediante Autodesk Vault.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- BIKAR -->
-                    <div class="print-avoid-break">
-                        <div class="flex flex-col md:flex-row md:justify-between job-header-container">
-                            <div>
-                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica</h3>
-                                <p class="text-sm text-gray-600 uppercase font-normal">BIKAR JUNTAS DE EXPANSIÓN</p>
-                            </div>
-                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">01/2025 – 05/2025</span>
-                        </div>
-                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
-                            <li>Diseño 3D de estructura metálica y piezas para mecanizado con AutoCAD Mechanical 3D.</li>
-                            <li>Elaboración de planos para pedidos de láser, conjuntos, despieces y listas de materiales.</li>
-                            <li>Desarrollo de proyectos de calderería metálica aplicando conocimientos de dibujo técnico.</li>
-                        </ul>
-                    </div>
-
-                    <!-- TN FLEX -->
-                    <div class="print-avoid-break">
-                        <div class="flex flex-col md:flex-row md:justify-between job-header-container">
-                            <div>
-                                <h3 class="text-base font-semibold">Delineante Mecánico / Diseño en Fabricación Mecánica</h3>
-                                <p class="text-sm text-gray-600 uppercase font-normal">TN FLEX CONVEYORS</p>
-                            </div>
-                            <span class="text-sm text-gray-500 font-medium mt-1 md:mt-0">01/2024 – 11/2024</span>
-                        </div>
-                        <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm text-gray-700">
-                            <li>Diseño de transportadores automatizados con Autodesk Inventor y AutoCAD 2D/3D.</li>
-                            <li>Creación de documentación técnica de fabricación, incluyendo conjuntos, despieces y listas de materiales.</li>
-                            <li>Elaboración de planos para pedidos de láser, calderería metálica y piezas para mecanizado.</li>
                         </ul>
                     </div>
 
@@ -324,7 +328,7 @@
                         </ul>
                     </div>
 
-                    <!-- Delineante Industrial (Varios) - Mantenido como bloque indivisible -->
+                    <!-- Delineante Industrial (Varios) -->
                      <div class="print-avoid-break">
                         <div class="flex flex-col md:flex-row md:justify-between job-header-container">
                              <div>
@@ -368,7 +372,7 @@
                 </div>
             </section>
     
-            <!-- Habilidades -->
+            <!-- Habilidades y Formación Complementaria -->
             <section class="mb-8 print-avoid-break">
                 <h2 class="text-xl font-bold border-b-2 border-slate-300 pb-2 mb-4">Programas y Habilidades</h2>
                 <div class="space-y-6">
